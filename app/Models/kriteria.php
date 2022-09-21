@@ -10,8 +10,9 @@ class kriteria extends Model
     use HasFactory;
 
     protected  $fillable = [
-        'nama',
         'nilai',
-        'jenis',
+        'adab',
+        'materi',
+        'biaya',
     ];
 }

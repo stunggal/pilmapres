@@ -73,17 +73,15 @@ class KriteriaController extends Controller
      */
     public function update(Request $request, kriteria $kriteria)
     {
-        $d = $request->id;
-        return $d;
         $validatedData = $request->validate([
             'nilai' => 'required',
             'biaya' => 'required',
             'materi' => 'required',
             'adab' => 'required',
         ]);
-        $data = kriteria::where('id' 'd')->first();
-        $data->update($validatedData);
-        return redirect('/kriteria')->with('success', 'data berhasil di update');
+        $data = kriteria::where('id', $request->id)->first();
+        $kriteria->update($validatedData);
+        return redirect('/kriteria')->with('success', 'Data have been updated!');
     }
 
     /**
