@@ -169,6 +169,7 @@ class MahasiswaController extends Controller
      */
     public function destroy(mahasiswa $mahasiswa)
     {
-        //
+        $mahasiswa->delete();
+        return redirect('/')->with('success', 'Data have been deleted!');
     }
 }

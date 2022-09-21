@@ -110,10 +110,18 @@
                                                 <td>{{ $mahasiswa->nama }}</td>
                                                 <td>{{ $mahasiswa->total }}</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary mb-3"
-                                                        data-bs-toggle="modal" data-bs-target="#update{{ $mahasiswa->id }}">
-                                                        Edit data
-                                                    </button>
+                                                    <form method="post" action="/mahasiswa/delete/{{ $mahasiswa->id }}">
+                                                        @csrf
+                                                        <button type="button" class="btn btn-primary mb-3"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#update{{ $mahasiswa->id }}">
+                                                            Edit data
+                                                        </button>
+                                                        <button type="submit" class="btn btn-danger mb-3"
+                                                            data-bs-toggle="modal">
+                                                            delete
+                                                        </button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                             <div class="modal fade" id="update{{ $mahasiswa->id }}" tabindex="-1">

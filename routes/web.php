@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [MahasiswaController::class, 'index']);
 Route::post('/mahasiswa/store', [MahasiswaController::class, 'store']);
 Route::post('/mahasiswa/update/{mahasiswa}', [MahasiswaController::class, 'update']);
+Route::post('/mahasiswa/delete/{mahasiswa}', [MahasiswaController::class, 'destroy']);
 
 Route::get('/kriteria', [KriteriaController::class, 'index']);
 Route::post('/kriteria/update/{kriteria}', [KriteriaController::class, 'update']);
