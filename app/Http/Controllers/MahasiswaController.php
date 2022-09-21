@@ -16,6 +16,7 @@ class MahasiswaController extends Controller
     public function index()
     {
         $mahasiswas = mahasiswa::all();
+        $asli = mahasiswa::all();
 
         // dinormalisasikan
         // pembagi
@@ -82,7 +83,8 @@ class MahasiswaController extends Controller
         $mahasiswas = $mahasiswas->sortBy('adab')->values()->all();
 
         return view('dashboard.index', [
-            'mahasiswas' => $mahasiswas
+            'mahasiswas' => $mahasiswas,
+            'asli' => $asli,
         ]);
     }
 
@@ -147,7 +149,16 @@ class MahasiswaController extends Controller
      */
     public function update(Request $request, mahasiswa $mahasiswa)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required',
+            'nim' => 'required',
+            'akademik' => 'required',
+            'biaya' => 'required',
+            'materi' => 'required',
+            'adab' => 'required',
+        ]);
+        $mahasiswa->update($validatedData);
+        return redirect('/')->with('success', 'Data have been updated!');
     }
 
     /**

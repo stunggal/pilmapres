@@ -79,7 +79,6 @@ class KriteriaController extends Controller
             'materi' => 'required',
             'adab' => 'required',
         ]);
-        $data = kriteria::where('id', $request->id)->first();
         $kriteria->update($validatedData);
         return redirect('/kriteria')->with('success', 'Data have been updated!');
     }
