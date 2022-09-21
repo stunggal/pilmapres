@@ -26,18 +26,20 @@
                                 <table class="table table-borderless datatable">
                                     <thead>
                                         <tr>
-                                            <th scope="col">nama</th>
                                             <th scope="col">nilai</th>
-                                            <th scope="col">jenis</th>
+                                            <th scope="col">biaya</th>
+                                            <th scope="col">materi</th>
+                                            <th scope="col">adab</th>
                                             <th scope="col">action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($kriterias as $kriteria)
                                             <tr>
-                                                <th scope="row">{{ $kriteria->nama }}</th>
                                                 <td>{{ $kriteria->nilai }}</td>
-                                                <td>{{ $kriteria->jenis }}</td>
+                                                <td>{{ $kriteria->biaya }}</td>
+                                                <td>{{ $kriteria->materi }}</td>
+                                                <td>{{ $kriteria->adab }}</td>
                                                 <td>
                                                     <button type="button" class="btn btn-primary mb-3"
                                                         data-bs-toggle="modal" data-bs-target="#update{{ $kriteria->id }}">
@@ -55,47 +57,44 @@
                                                         </div>
                                                         <form action="/kriteria/update/{{ $kriteria->id }}" method="post">
                                                             @csrf
+                                                            <input type="hidden" name="id"
+                                                                value="{{ $kriteria->id }}">
                                                             <div class="modal-body">
                                                                 <div class="row mb-3">
                                                                     <label for="inputText"
-                                                                        class="col-sm-2 col-form-label">Nama</label>
+                                                                        class="col-sm-2 col-form-label">Nilai
+                                                                        Akademik</label>
                                                                     <div class="col-sm-10">
                                                                         <input type="text" class="form-control"
-                                                                            name="nama" value="{{ $kriteria->nama }}">
+                                                                            name="nilai" value="{{ $kriteria->nilai }}">
                                                                     </div>
                                                                 </div>
                                                                 <div class="row mb-3">
                                                                     <label for="inputText"
-                                                                        class="col-sm-2 col-form-label">nilai</label>
+                                                                        class="col-sm-2 col-form-label">biaya orang
+                                                                        tua</label>
                                                                     <div class="col-sm-10">
                                                                         <input type="text" class="form-control"
-                                                                            name="nilai" value="{{ $kriteria->nilai }}"">
+                                                                            name="biaya" value="{{ $kriteria->biaya }}">
                                                                     </div>
                                                                 </div>
-                                                                <fieldset class="row mb-3">
-                                                                    <legend class="col-form-label col-sm-2 pt-0">Jenis
-                                                                    </legend>
+                                                                <div class="row mb-3">
+                                                                    <label for="inputText"
+                                                                        class="col-sm-2 col-form-label">penguasaan
+                                                                        materi</label>
                                                                     <div class="col-sm-10">
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input" type="radio"
-                                                                                name="jenis" id="gridRadios1"
-                                                                                value="cost">
-                                                                            <label class="form-check-label"
-                                                                                for="gridRadios1">
-                                                                                cost
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input" type="radio"
-                                                                                name="jenis" id="gridRadios2"
-                                                                                value="benefit">
-                                                                            <label class="form-check-label"
-                                                                                for="gridRadios2">
-                                                                                benefit
-                                                                            </label>
-                                                                        </div>
+                                                                        <input type="text" class="form-control"
+                                                                            name="materi" value="{{ $kriteria->materi }}">
                                                                     </div>
-                                                                </fieldset>
+                                                                </div>
+                                                                <div class="row mb-3">
+                                                                    <label for="inputText"
+                                                                        class="col-sm-2 col-form-label">tata krama</label>
+                                                                    <div class="col-sm-10">
+                                                                        <input type="text" class="form-control"
+                                                                            name="adab" value="{{ $kriteria->adab }}">
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary"
