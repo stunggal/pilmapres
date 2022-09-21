@@ -80,7 +80,7 @@ class MahasiswaController extends Controller
             $mahasiswa['total'] = $mahasiswa['D-'] / ($mahasiswa['D+'] + $mahasiswa['D-']);
         }
 
-        $mahasiswas = $mahasiswas->sortBy('adab')->values()->all();
+        $mahasiswas = $mahasiswas->sortBy('total')->values()->all();
 
         return view('dashboard.index', [
             'mahasiswas' => $mahasiswas,
